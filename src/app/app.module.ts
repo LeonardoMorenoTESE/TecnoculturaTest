@@ -11,6 +11,21 @@ import { NAnterioresComponent } from './n-anteriores/n-anteriores.component';
 import { EditorialComponent } from './editorial/editorial.component';
 import { ContactanosComponent } from './contactanos/contactanos.component';
 import { LineamientosComponent } from './lineamientos/lineamientos.component';
+import { AdminModule } from './admin/admin.module'
+
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { LoginComponent } from './admin/login/login.component';
+
+var config = {
+  apiKey: "AIzaSyDCgz-DoAcS2EY4m9kMT27n01goFuTEc_w",
+  authDomain: "tecnocultura-df5ce.firebaseapp.com",
+  databaseURL: "https://tecnocultura-df5ce.firebaseio.com",
+  projectId: "tecnocultura-df5ce",
+  storageBucket: "tecnocultura-df5ce.appspot.com",
+  messagingSenderId: "189181717351",
+};
+
 
 @NgModule({
   declarations: [
@@ -22,11 +37,15 @@ import { LineamientosComponent } from './lineamientos/lineamientos.component';
     NAnterioresComponent,
     EditorialComponent,
     ContactanosComponent,
-    LineamientosComponent
+    LineamientosComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AdminModule,
+    AngularFireModule.initializeApp(config),
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
